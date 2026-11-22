@@ -1,19 +1,31 @@
 {
-  "name": "npm",
+  "name": "byte-craft",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Ultra-lightweight, zero-dependency binary and byte buffer manipulation toolkit for TypeScript and JavaScript",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": ["binary", "buffer", "hex", "bitwise", "bitmask", "stream", "byte", "encoder"],
+  "author": "PixelCraftLab <vishalgowdask65@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PixelCraftLab/npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PixelCraftLab/npm/issues"
+  },
+  "homepage": "https://github.com/PixelCraftLab/npm#readme",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "@types/node": "^26.6.6",
-    "tsup": "^8.5.1",
-    "tsx": "^4.23.15",
-    "typescript": "^7.0.2"
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   }
 }
